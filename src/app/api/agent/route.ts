@@ -1,11 +1,12 @@
-// src/app/api/agent/route.ts
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 
-export async function POST(req: Request) {
-  const body = await req.json();
+export async function POST(request: Request) {
+  const body = await request.json();
 
-  console.log("Received agent callback:", body);
+  console.log("Received ping from agent:", body);
 
-  // Store or handle callback
-  return NextResponse.json({ status: "ok" });
+  return NextResponse.json({
+    success: true,
+    received: body,
+  });
 }
